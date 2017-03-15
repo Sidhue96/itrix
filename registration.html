@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>ITRIX</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom Fonts from Google -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        function reg_validation(){
+            var number = document.registration.number;
+            var email = document.forms["registration"]["email"].value;
+            var year = document.getElementById("year").value;
+            if(year == 0){
+                alert("Select year of study");
+                return false;
+            }
+            var phoneno = /^\d{10}$/;
+            var x=0;
+            if(number.value.match(phoneno)){  
+                  x=1;
+                }  
+            else{  
+                alert("Not a valid Phone Number");  
+                return false;
+                }
+            var atpos = email.indexOf("@");
+            var dotpos = email.lastIndexOf(".");
+            if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
+                alert("Not a valid e-mail address");
+                return false;
+                }
+            else{
+                x=x+1;
+            }
+            if(x>1){
+                return true;
+            }
+        }  
+   </script>
+    
+    
+</head>
+
+<body>
+	<!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h3>Register First!</h3>
+                <form name="registration" onSubmit="return reg_validation();" method="post" action="registration.php">
+                    <input type="text" name="fname" id="fname" style="background-color:white; 
+                      border: solid 1px #6E6E6E;
+                      height: 30px; 
+                      font-size:18px; 
+                       vertical-align:9px;color:#bbb"  placeholder="First name" required><br><br>
+                    <input type="text" name="lname" id="lname" style="background-color:white; 
+                      border: solid 1px #6E6E6E;
+                      height: 30px; 
+                      font-size:18px; 
+                       vertical-align:9px;color:#bbb"  placeholder="Last name" required><br><br>
+                    <input type="text" name="number" id="number" style="background-color:white; 
+                      border: solid 1px #6E6E6E;
+                      height: 30px; 
+                      font-size:18px; 
+                       vertical-align:9px;color:#bbb"  placeholder="Phone number" maxlength="10" required><br><br>
+                    <input type="radio" name="gender" value="male" checked> Male<br>
+                    <input type="radio" name="gender" value="female"> Female<br><br>
+                    <input type="text" name="email" id="email" style="background-color:white; 
+                      border: solid 1px #6E6E6E;
+                      height: 30px; 
+                      font-size:18px; 
+                       vertical-align:9px;color:#bbb"  placeholder="Email" required><br><br>
+                    <input type="text" name="clg" id="clg" style="background-color:white; 
+                      border: solid 1px #6E6E6E;
+                      height: 30px; 
+                      font-size:18px; 
+                       vertical-align:9px;color:#bbb"  placeholder="College" required><br><br>
+                    <input type="text" name="dept" id="dept" style="background-color:white; 
+                      border: solid 1px #6E6E6E;
+                      height: 30px; 
+                      font-size:18px; 
+                       vertical-align:9px;color:#bbb"  placeholder="Department" required><br><br>
+                    <select name="year" id="year" style="background-color:white; 
+                      border: solid 1px #6E6E6E;
+                      height: 30px; 
+                      font-size:18px; 
+                       vertical-align:9px;color:#bbb">
+					   <option label="Year" value = "0" selected disabled>Year</option>
+					   <option value="1" label="1">1</option>
+					   <option value="2" label="2">2</option>
+					   <option value="3" label="3">3</option>
+					   <option value="4" label="4">4</option>
+					   <option value="5" label="5">5</option>
+				    </select><br><br>
+                    <input type="submit" class="btn btn-primary btn-lg" name="submit">
+                </form>
+             </div>
+        </div>
+    </header>
+    <!-- jQuery -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    
+    <!-- Custom Javascript -->
+    <script src="js/custom.js"></script>
+
+</body>
+
+</html>
